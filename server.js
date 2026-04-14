@@ -28,3 +28,9 @@ const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
+
+const protected = require(`./middleware/authMiddleware`)
+
+app.get(`/api/protected`, protected, (req, res) => {
+    res.json({ message: 'you are authorized!', user: req.user})
+})
