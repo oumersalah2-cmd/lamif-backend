@@ -34,3 +34,6 @@ const protected = require(`./middleware/authMiddleware`)
 app.get(`/api/protected`, protected, (req, res) => {
     res.json({ message: 'you are authorized!', user: req.user})
 })
+
+const tutorRoutes = require('./routes/tutor')
+app.use('/api/tutor', tutorRoutes)
